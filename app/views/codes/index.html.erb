@@ -1,0 +1,51 @@
+<h3>Code Categories</h3>
+<div id='categories'>
+  <% @languages.each do |r| %>
+    <%= link_to r.kind, language_path(r) %>
+    <br>
+  <% end %>
+</div>
+
+<h3>New Code</h3>
+<%= @code.errors.full_messages.join(', ') %>
+<%= form_for @code do |f| %>
+  <div>
+    <div class="left">
+      <%= f.label :kind %>
+    </div>
+
+    <div class="right">
+      <%= f.collection_select :language_id, @languages, :id, :kind, :prompt => "Select a language" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="left">
+      <%= f.label :title %>
+    </div>
+
+    <div class="right">
+      <%= f.text_field :title, size: "50" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="left">
+      <%= f.label :code %>
+    </div>
+
+    <div class="right">
+      <%= f.text_area :code, size: "50x10", class: "codemirror" %>
+    </div>
+  </div>
+
+  <div>
+    <div class="left">
+
+    </div>
+
+    <div class="right">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

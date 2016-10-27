@@ -1,0 +1,7 @@
+<h1><%= @code.title %></h1>
+<h2><%= markdown(@code.code) %></h2>
+
+<%= link_to 'edit', edit_code_path(@code) %>
+<%= link_to 'delete', code_path(@code),
+                      method: :delete,
+                      data: { confirm: 'Delete for real?' } %>
