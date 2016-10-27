@@ -1,7 +1,7 @@
 <h3>Code Categories</h3>
 <div id='categories'>
   <% @languages.each do |r| %>
-    <%= link_to r.kind + '( ' + ' )', language_path(r) %>
+    <%= link_to r.name + '( ' + ' )', language_path(r) %>
     <br>
   <% end %>
 </div>
@@ -11,11 +11,11 @@
 <%= form_for @code do |f| %>
   <div>
     <div class="left">
-      <%= f.label :kind %>
+      <%= f.label :name %>
     </div>
 
     <div class="right">
-      <%= f.collection_select :language_id, @languages, :id, :kind, :prompt => "Select a language" %>
+      <%= f.collection_select :language_id, @languages, :id, :name, :prompt => "Select a language" %>
     </div>
   </div>
 
@@ -52,4 +52,3 @@
 <% end %>
 
 <%= javascript_include_tag('ace_editor.js') %>
-
