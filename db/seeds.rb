@@ -9,6 +9,6 @@
 languages = ['Ruby', 'HTML', 'CSS', 'JavaScript']
 for i in 0...languages.length
   Language.create({
-    kind: languages[i]
+    name: languages[i]
   })
 end
