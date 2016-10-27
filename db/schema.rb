@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20161026195223) do
   enable_extension "plpgsql"
 
   create_table "codes", force: :cascade do |t|
-    t.string   "kind"
     t.string   "title"
     t.text     "code"
     t.datetime "created_at",  null: false
@@ -26,7 +25,7 @@ ActiveRecord::Schema.define(version: 20161026195223) do
   end
 
   create_table "languages", force: :cascade do |t|
-    t.string   "kind"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
