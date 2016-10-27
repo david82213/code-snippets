@@ -1,7 +1,7 @@
 <h3>Code Categories</h3>
 <div id='categories'>
   <% @languages.each do |r| %>
-    <%= link_to r.name + '( ' + r.codes.count.to_s + ' )', language_path(r) %>
+    <%= link_to r.name + ' (' + r.codes.count.to_s + ' Snippets)', language_path(r) %>
     <br>
   <% end %>
 </div>
