@@ -7,6 +7,7 @@ class CodesController < ApplicationController
 
   def create
     @code = Code.new code_params
+    @code.code = "```" + @code.language.name + "\r\n" + @code.code
 
     if @code.save
       redirect_to code_path(@code)
