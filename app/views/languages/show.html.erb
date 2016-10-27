@@ -1,0 +1,5 @@
+<%= @language.name %>
+<% @language.codes.each do |code| %>
+  <p><%= code.title %></p>
+  <p><%= markdown(code.code)  %></p>
+<% end %>
