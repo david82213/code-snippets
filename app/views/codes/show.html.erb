@@ -1,7 +1,10 @@
 <h1><%= @code.title %></h1>
-<h2><%= markdown(@code.code) %></h2>
-
+<div class = "readonly-editor">
+  <textarea rows="4" cols="50"><%= @code.code %></textarea>
+</div>
 <%= link_to 'edit', edit_code_path(@code) %>
 <%= link_to 'delete', code_path(@code),
                       method: :delete,
                       data: { confirm: 'Delete for real?' } %>
+                      
+<%= javascript_include_tag('ace_editor.js') %>
