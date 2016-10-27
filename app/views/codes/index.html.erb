@@ -11,7 +11,7 @@
 <%= form_for @code do |f| %>
   <div>
     <div class="left">
-      <%= f.label :name %>
+      <%= f.label :name, "Syntax" %>
     </div>
 
     <div class="right">
@@ -21,7 +21,7 @@
 
   <div>
     <div class="left">
-      <%= f.label :title %>
+      <%= f.label :title, "Snippet Name" %>
     </div>
 
     <div class="right">
@@ -36,7 +36,7 @@
 
     <div class="right">
       <div class="source-editor">
-        <%= f.text_area :code, size:"100x20"%>
+        <%= f.text_area :code, size:"100x20", disable:true%>
       </div>
       <!-- <div id="aceEditor">function foo(items) {}</div> -->
     </div>

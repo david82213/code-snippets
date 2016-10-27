@@ -17,6 +17,7 @@ class CodesController < ApplicationController
 
   def show
     @code = Code.find params[:id]
+    @languages = Language.all
   end
 
   def edit

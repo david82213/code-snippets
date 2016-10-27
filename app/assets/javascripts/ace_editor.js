@@ -25,6 +25,7 @@ $('.source-editor').each(function() {
 
   editor.setFontSize('14px');
   editor.setTheme('ace/theme/monokai');
+  // editor.setReadOnly(true);// this makes the textarea display only
   editor.getSession().setMode('ace/mode/javascript');
   editor.getSession().setValue(editorArea.val());
 
