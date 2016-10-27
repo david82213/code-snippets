@@ -2,7 +2,7 @@ class CodesController < ApplicationController
   def index
     @code = Code.new
     @languages = Language.all
-    @codes = Code.all
+    #@codes = Code.all
   end
 
   def create
