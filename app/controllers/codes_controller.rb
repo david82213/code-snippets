@@ -25,6 +25,9 @@ class CodesController < ApplicationController
     @code = Code.find params[:id]
   end
 
+  def update_editor
+    render :partial => "codes/editor"
+  end
   private
 
   def code_params

@@ -11,13 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-
 //= require ace-rails-ap
-
 //= require codemirror
 //= require codemirror/modes/ruby
+//= require turbolinks
 //= require_tree .
 $(function(){
   window.codemirror_editors = {};
