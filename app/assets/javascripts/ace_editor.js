@@ -11,12 +11,12 @@ prepareEditor('javascript');
 $('#code_language_id').on('change', function() {
     // Initial attempt, setting the data-mode in html
     // $('#index-editor').attr('data-mode', 'ruby');
-
+    var selectedSyn = $(this).find("option:selected").html().toLowerCase();
     // Grab the current ace editor and set its mode to ruby(for now)
     var editorArea = $('.source-editor textarea');
     var editDiv = $('.ace_editor');
     var editor = ace.edit(editDiv[0]);
-    editor.getSession().setMode('ace/mode/ruby');
+    editor.getSession().setMode('ace/mode/' + selectedSyn);
     editorArea.closest('form').submit(function() {
       editorArea.val(editor.getSession().getValue());
     });
