@@ -15,7 +15,8 @@
     </div>
 
     <div class="right">
-      <%= f.collection_select :language_id, @languages, :id, :name, :prompt => "Select a language" %>
+      <%= f.collection_select :language_id, @languages, :id, :name, :prompt => "Select a language",
+        :onchange=>"" %>
     </div>
   </div>
 
