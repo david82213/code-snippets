@@ -1,5 +1,6 @@
-<% syntax = @language.name %>
-<h1><%= syntax %></h1>
+<div id="languageName">
+<h1><%= @language.name %></h1>
+</div>
 <% @language.codes.each do |code| %>
   <div class="well">
     <p><%= code.title %></p>

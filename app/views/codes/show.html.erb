@@ -1,3 +1,7 @@
+<div id="languageName">
+  <h1><%= @code.language.name %></h1>
+</div>
+
 <h1><%= @code.title %></h1>
 <div class = "readonly-editor">
   <textarea rows="4" cols="50"><%= @code.code %></textarea>
@@ -6,5 +10,5 @@
 <%= link_to 'delete', code_path(@code),
                       method: :delete,
                       data: { confirm: 'Delete for real?' } %>
-                      
-<%= javascript_include_tag('ace_editor.js') %>
+
+<%= javascript_include_tag('ace_reader.js') %>

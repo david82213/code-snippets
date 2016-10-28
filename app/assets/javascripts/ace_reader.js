@@ -18,19 +18,19 @@ function prepareReadonly(){
         height: editorArea.height(),
         'class': editorArea.attr('class')
       }).insertBefore(editorArea);
-      
+
     // no need to display textarea
     editorArea.css('display', 'none');
 
     editor = ace.edit(editDiv[0]);
-    
+
     editor.setFontSize('14px');
     editor.setTheme('ace/theme/monokai');
-    
+
     editor.setReadOnly(true);// this makes the textarea display only
-    
+
     // this will read from h1 html content and change syntax accordingly
-    editor.getSession().setMode('ace/mode/'+ $('h1').html().toLowerCase());
+    editor.getSession().setMode('ace/mode/'+ $('#languageName h1').html().toLowerCase());
     editor.getSession().setValue(editorArea.val());
 
     // save back to the textarea when submit
