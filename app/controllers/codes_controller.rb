@@ -7,7 +7,7 @@ class CodesController < ApplicationController
 
   def create
     @code = Code.new code_params
-    @code.code = "```" + @code.language.name + "\r\n" + @code.code
+    @code.code = @code.code
 
     if @code.save
       redirect_to code_path(@code)
@@ -23,10 +23,6 @@ class CodesController < ApplicationController
 
   def edit
     @code = Code.find params[:id]
-  end
-
-  def update_editor
-    render :partial => "codes/editor"
   end
   private
 
