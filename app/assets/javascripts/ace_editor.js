@@ -1,7 +1,9 @@
 
+
 // -------------- Page Initial Load ------------
 // Setup the ace editor when the web page first loads
 prepareEditor('javascript');
+
 
 // ------------- Select Syntax -----------------
 // Change the ace editor syntax upon syntax being selected from
@@ -80,4 +82,5 @@ $('.readonly-editor').each(function() {
   editorArea.closest('form').submit(function() {
     editorArea.val(editor.getSession().getValue());
   });
-});    
+
+});
