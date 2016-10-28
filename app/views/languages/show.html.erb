@@ -1,5 +1,13 @@
-<%= @language.name %>
+<h1><%= @language.name %></h1>
+
 <% @language.codes.each do |code| %>
-  <p><%= code.title %></p>
-  <p><%= markdown(code.code)  %></p>
+  <div class="well">
+    <p><%= code.title %></p>
+    <!-- <p><%#= markdown(code.code)  %></p> -->
+    <div class = "readonly-editor">
+      <textarea rows="4" cols="50"><%= code.code %></textarea>
+    </div>
+  </div>
 <% end %>
+
+<%= javascript_include_tag('ace_editor.js') %>
