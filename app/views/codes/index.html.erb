@@ -1,56 +1,58 @@
-<h3>Code Categories</h3>
 <div id='categories'>
+  <h3>Code Categories</h3>
   <% @languages.each do |r| %>
     <%= link_to r.name + ' (' + r.codes.count.to_s + ' Snippets)', language_path(r) %>
     <br>
   <% end %>
 </div>
+<div class="form">
+  <h3>New Code</h3>
+  <%= @code.errors.full_messages.join(', ') %>
+  <%= form_for @code do |f| %>
+    <div>
+      <div class="left">
+        <%= f.label :name, "Syntax" %>
+      </div>
 
-<h3>New Code</h3>
-<%= @code.errors.full_messages.join(', ') %>
-<%= form_for @code do |f| %>
-  <div>
-    <div class="left">
-      <%= f.label :name, "Syntax" %>
-    </div>
-
-    <div class="right">
-      <%= f.collection_select :language_id, @languages, :id, :name, :prompt => "Select a language",
-        :onchange=>"" %>
-    </div>
-  </div>
-
-  <div>
-    <div class="left">
-      <%= f.label :title, "Snippet Name" %>
-    </div>
-
-    <div class="right">
-      <%= f.text_field :title, size: "50" %>
-    </div>
-  </div>
-
-  <div>
-    <div class="left">
-      <%= f.label :code %>
-    </div>
-
-    <div class="right">
-      <div id = "index-editor" class="source-editor">
-        <%= f.text_area :code, size:"100x20", id:"dynamic"%>
+      <div class="right">
+        <%= f.collection_select :language_id, @languages, :id, :name, {:prompt => "Select a language"},
+          {class: "form-control"} %>
       </div>
     </div>
-  </div>
 
-  <div>
-    <div class="left">
+    <div>
+      <div class="left">
+        <%= f.label :title, "Snippet Name" %>
+      </div>
 
+      <div class="right">
+        <%= f.text_field :title, size: "50" %>
+      </div>
     </div>
 
-    <div class="right">
-      <%= f.submit %>
+    <div>
+      <div class="left">
+        <%= f.label :code %>
+      </div>
+
+      <div class="right">
+        <div id = "index-editor" class="source-editor">
+          <%= f.text_area :code, size:"80x20", id:"dynamic"%>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+
+    <div>
+      <div class="left">
+
+      </div>
+
+      <div class="right">
+        <%= f.submit 'Submit', class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
 <%= javascript_include_tag'ace_editor', "data-turbolinks-track" => true %>
