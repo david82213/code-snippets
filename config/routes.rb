@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :codes
   resources :languages
   resources :users, only:[:create, :new]
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
 end
