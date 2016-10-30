@@ -1,24 +1,23 @@
-# README
+# Code Snippets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Code Snippets website help user to store their snippets of code by organizing them into categories and display syntax correctly according to the language given.
 
-Things you may want to cover:
+## Working Features
 
-* Ruby version
+- [x] Dropdown menu with supporting languages
 
-* System dependencies
+- [x] Text editor that changes syntax highlighting based on selected language
 
-* Configuration
+- [x] Categorize the code snippets
 
-* Database creation
+## UI
 
-* Database initialization
+- [x] Applied Bootstrap style of theme
+- [x] Avoids ambiguous layout
+- [x] User-friendly
 
-* How to run the test suite
+## More updates to come
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] User authentication/authorization
+- [ ] Enhance UI
+- [ ] Test cases

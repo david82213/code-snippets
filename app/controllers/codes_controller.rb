@@ -7,7 +7,7 @@ class CodesController < ApplicationController
 
   def create
     @code = Code.new code_params
-    @code.code = @code.code
+    @code.code = @code.code.rstrip
 
     if @code.save
       redirect_to code_path(@code)
