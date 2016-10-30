@@ -23,7 +23,29 @@ class CodesController < ApplicationController
 
   def edit
     @code = Code.find params[:id]
+    @languages = Language.all
   end
+  
+  def update
+    @code = Code.find params[:id]
+    if @code.update code_params
+      redirect_to code_path(@code), notice: "Code: #{@code.title} is updated"
+    else
+      flash.now[:alert] = 'Please see error(s) below'
+      render :edit
+    end  
+  end
+  
+  def destroy
+    code = Code.find params[:id]
+    if code.destroy
+      redirect_to root_path, notice: "You have deleted #{code.title}"
+    else
+      render :edit, notice: "Something went wrong, failed to delete this code snippet."
+    end
+    
+  end
+  
   private
 
   def code_params

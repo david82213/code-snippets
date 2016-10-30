@@ -3,8 +3,7 @@
 </div>
 <% @language.codes.each do |code| %>
   <div class="well">
-    <p><%= code.title %></p>
-    <!-- <p><%#= markdown(code.code)  %></p> -->
+    <p><%= link_to code.title, code_path(code) %></p>
     <div class = "readonly-editor", >
       <textarea rows="4" cols="50"><%= code.code %></textarea>
     </div>

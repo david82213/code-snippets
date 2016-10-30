@@ -1,0 +1,56 @@
+<h1>Edit Code Snippet</h1>
+<div id = "languageName">
+  <h1><%= @code.language.name %></h1>
+</div>
+
+<div class="form">
+  <h3>Edit Code</h3>
+  <%= @code.errors.full_messages.join(', ') %>
+  <%= form_for @code do |f| %>
+    <div>
+      <div class="left">
+        <%= f.label :name, "Syntax" %>
+      </div>
+
+      <div class="right">
+        <%= f.collection_select :language_id, @languages, :id, :name, {:prompt => "Select a language"},
+          {class: "form-control"} %>
+      </div>
+    </div>
+
+    <div>
+      <div class="left">
+        <%= f.label :title, "Snippet Name" %>
+      </div>
+
+      <div class="right">
+        <%= f.text_field :title, size: "50" %>
+      </div>
+    </div>
+
+    <div>
+      <div class="left">
+        <%= f.label :code %>
+      </div>
+
+      <div class="right">
+        <div id = "update-editor" class="ace-editor">
+          <%= f.text_area :code, size:"80x20", id:"dynamic"%>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="left">
+
+      </div>
+
+      <div class="right">
+        <%= f.submit 'Update', class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= javascript_include_tag'ace_editor'%>

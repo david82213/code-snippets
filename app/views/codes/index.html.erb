@@ -36,7 +36,7 @@
       </div>
 
       <div class="right">
-        <div id = "index-editor" class="source-editor">
+        <div id = "index-editor" class="ace-editor">
           <%= f.text_area :code, size:"80x20", id:"dynamic"%>
         </div>
       </div>
@@ -55,4 +55,4 @@
 </div>
 
 
-<%= javascript_include_tag'ace_editor', "data-turbolinks-track" => true %>
+<%= javascript_include_tag'ace_editor'%>

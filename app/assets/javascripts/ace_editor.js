@@ -2,7 +2,13 @@
 
 // -------------- Page Initial Load ------------
 // Setup the ace editor when the web page first loads
-prepareEditor('javascript');
+if ($('#languageName h1').length){
+  prepareEditor($('#languageName h1').html().toLowerCase());
+}
+else {
+  // If there's no matching syntax, set the editor mode to plain text
+  prepareEditor('text');
+}
 
 
 // ------------- Select Syntax -----------------
@@ -13,7 +19,7 @@ $('#code_language_id').on('change', function() {
     // $('#index-editor').attr('data-mode', 'ruby');
     var selectedSyn = $(this).find("option:selected").html().toLowerCase();
     // Grab the current ace editor and set its mode to ruby(for now)
-    var editorArea = $('.source-editor textarea');
+    var editorArea = $('.ace-editor textarea');
     var editDiv = $('.ace_editor');
     var editor = ace.edit(editDiv[0]);
     editor.getSession().setMode('ace/mode/' + selectedSyn);
@@ -27,7 +33,7 @@ $('#code_language_id').on('change', function() {
 
 // Ace editor setup function, takes a string for setting its mode
 function prepareEditor (lang) {
-  $('.source-editor').each(function() {
+  $('.ace-editor').each(function() {
     var container = $(this);
     // var mode = container.data('mode');
     var editorArea = container.find('textarea');
