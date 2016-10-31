@@ -1,13 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Language, type: :model do
-  describe 'validations' do
-    it 'requires unique names for languages' do
-      FactoryGirl.create :language, name: 'Python'
-      c = Language.new name: 'Python'
+  describe "validation" do
+    it 'requires a language name' do
+      l = build(:language, name: nil)
+      l.valid?
+      expect(l.errors).to have_key(:name)
+    end
 
-      c.valid?
-      expect(c.errors).to have_key(:name)
+    it 'requires a unique language name' do
+      create(:language, name: 'Ruby')
+      l = build(:language, name: 'Ruby')
+      l.valid?
+      expect(l.errors).to have_key(:name)
     end
   end
 end

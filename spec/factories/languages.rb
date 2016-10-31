@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :language do
-    name    { Faker::Name.first_name }
+    name {Faker::GameOfThrones.house}
   end
 end

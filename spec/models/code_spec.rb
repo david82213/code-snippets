@@ -1,20 +1,22 @@
 require 'rails_helper'
 
-# this file is generated through the following command:
-# rails g rspec:model code
-
 RSpec.describe Code, type: :model do
-  describe 'validations' do
-    it 'requires a unique title' do
-      FactoryGirl.create :code, title: 'testing'
-      c = Code.new title: 'testing'
-      
+  describe "validations" do
+    it 'requires title to be present' do
+      c = build(:code, title: nil)
       c.valid?
       expect(c.errors).to have_key(:title)
     end
-
-    it 'requires code' do
-      c = Code.new
+    
+    it 'requires title to be unique' do
+      create(:code, title: "ABC")
+      c = build( :code, title: "ABC")
+      c.valid?
+      expect(c.errors).to have_key(:title)
+    end
+    
+    it 'requires code to be present' do
+      c = build(:code, title: 'Test', code: nil)
       c.valid?
       expect(c.errors).to have_key(:code)
     end
