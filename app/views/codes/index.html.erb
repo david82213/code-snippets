@@ -1,7 +1,8 @@
 <div id='categories'>
   <h3>Code Categories</h3>
   <% @languages.each do |r| %>
-    <%= link_to r.name + ' (' + r.codes.count.to_s + ' Snippets)', language_path(r) %>
+    <% uses = Use.where(user: current_user, language: r) %>
+    <%= link_to r.name + ' (' + uses.count.to_s + ' Snippets)', language_path(r) %>
     <br>
   <% end %>
 </div>

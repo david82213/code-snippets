@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if user_signed_in?
   end
   helper_method :current_user
+
+  def authenticate_user
+    redirect_to new_session_path, alert: 'Please sign in!' unless user_signed_in?
+  end
 end

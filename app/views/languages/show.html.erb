@@ -2,17 +2,19 @@
 <h1><%= @language.name %></h1>
 </div>
 <% @language.codes.each do |code| %>
-  <div class="well">
-    <p><%= link_to code.title, code_path(code) %></p>
-    <div class = "readonly-editor", >
-      <textarea rows="4" cols="50"><%= code.code %></textarea>
+  <% if code.user == current_user %>
+    <div class="well">
+      <p><%= link_to code.title, code_path(code) %></p>
+      <div class = "readonly-editor", >
+        <textarea rows="4" cols="50"><%= code.code %></textarea>
+      </div>
+      <%= link_to 'edit', edit_code_path(code), class: "btn btn-primary btn-sm"%>
+      <%= link_to 'delete', code_path(code),
+                            method: :delete,
+                            class: "btn btn-danger btn-sm",
+                            data: { confirm: 'Delete for real?' } %>
     </div>
-    <%= link_to 'edit', edit_code_path(code), class: "btn btn-primary btn-sm"%>
-    <%= link_to 'delete', code_path(code),
-                          method: :delete,
-                          class: "btn btn-danger btn-sm",
-                          data: { confirm: 'Delete for real?' } %>
-  </div>
+  <% end %>
 <% end %>
 
 <%= javascript_include_tag('ace_reader.js') %>

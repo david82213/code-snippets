@@ -28,14 +28,14 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    user = User.new
+    user ||= User.new
 
     can :manage, Code do |c|
       c.user == user
     end
 
     can :delete, Code do |c|
-      c.user == user 
+      c.user == user
     end
 
   end
