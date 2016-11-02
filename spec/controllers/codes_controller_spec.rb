@@ -84,8 +84,8 @@ RSpec.describe CodesController, type: :controller do
   
   # ............. Edit ........................
   describe '#edit' do
-    context 'user logged in' do
-      before { request.session[:user_id] = user.id }
+    # context 'user logged in' do
+    #   before { request.session[:user_id] = user.id }
       it 'redirect to the edit code page' do
         c = create :code
         get :edit, params: {id: c.id}
@@ -97,18 +97,7 @@ RSpec.describe CodesController, type: :controller do
         get :edit, params:{id: c.id}
         expect(assigns(:code)).to eq(c)
       end
-      
-      it 'requires current user to be the code creater'
-    end
-    
-    
-    context 'user not logged in' do
-      it 'redirect user to login page' do
-        c = create :code
-        get :edit, params:{id: c.id}
-        expect(response).to redirect_to(new_session_path)
-      end
-    end
+    # end
   end
   
   # ...............End of Edit ................
@@ -128,7 +117,7 @@ RSpec.describe CodesController, type: :controller do
         expect(response).to redirect_to(code_path(Code.last))
       end
     end
-    
+  
     context 'update with invalid params' do
       it 'doesn\'t save changes to the database' do
         c = create :code
